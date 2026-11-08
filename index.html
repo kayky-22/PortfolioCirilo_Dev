@@ -1,247 +1,216 @@
-<!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio | Roblox Studio Builder</title>
-    
-    <!-- Tailwind CSS para estilização rápida e responsiva -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Font Awesome para os ícones (como o do Discord) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!-- Tailwind CSS para estilização rápida e responsiva -->
+<script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Configuração de cores personalizadas no Tailwind -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        roblox: {
-                            dark: '#0f172a',
-                            panel: '#1e293b',
-                            accent: '#3b82f6',
-                            hover: '#2563eb'
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
+<!-- Font Awesome para os ícones -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- Configuração de cores personalizadas no Tailwind -->
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    roblox: {
+                        dark: '#0f172a',
+                        panel: '#1e293b',
+                        accent: '#3b82f6',
+                        hover: '#2563eb'
                     }
+                },
+                fontFamily: {
+                    sans: ['Inter', 'sans-serif'],
                 }
             }
         }
-    </script>
+    }
+</script>
+
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: #0f172a;
+        color: #f8fafc;
+    }
     
-    <!-- Google Fonts: Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    .project-card:hover .project-img {
+        transform: scale(1.05);
+    }
+    
+    .project-img {
+        transition: transform 0.3s ease-in-out;
+    }
 
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0f172a; /* roblox-dark */
-            color: #f8fafc;
-        }
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+        background: #0f172a;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #3b82f6;
+        border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #2563eb;
+    }
+</style>
+
+
+<!-- CABEÇALHO -->
+<header class="w-full bg-roblox-panel shadow-lg border-b border-slate-700 fixed top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+        <h1 class="text-2xl font-bold text-white tracking-wider flex items-center gap-2">
+            <i class="fa-solid fa-cube text-roblox-accent"></i> 
+            <span>Builder<span class="text-roblox-accent">.</span>Portfólio</span>
+        </h1>
+        <nav class="hidden md:flex gap-6 text-sm font-semibold text-slate-300">
+            <a href="#sobre" class="hover:text-roblox-accent transition-colors">Sobre mim</a>
+            <a href="#projetos" class="hover:text-roblox-accent transition-colors">Projetos</a>
+            <a href="#contato" class="hover:text-roblox-accent transition-colors">Contato</a>
+        </nav>
+    </div>
+</header>
+
+<div class="pt-24"></div>
+
+<!-- SEÇÃO: SOBRE MIM -->
+<section id="sobre" class="max-w-4xl mx-auto px-6 py-12">
+    <div class="bg-roblox-panel rounded-2xl p-8 md:p-12 shadow-2xl border border-slate-700/50 flex flex-col md:flex-row items-center gap-8 relative overflow-hidden">
         
-        /* Efeito de hover suave nas imagens */
-        .project-card:hover .project-img {
-            transform: scale(1.05);
-        }
+        <div class="absolute -top-10 -right-10 w-32 h-32 bg-roblox-accent rounded-full opacity-10 blur-3xl"></div>
         
-        .project-img {
-            transition: transform 0.3s ease-in-out;
-        }
-
-        /* Oculta o scrollbar mas mantém a rolagem */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0f172a;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #3b82f6;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #2563eb;
-        }
-    </style>
-</head>
-<body class="antialiased min-h-screen flex flex-col">
-
-    <!-- CABEÇALHO -->
-    <header class="w-full bg-roblox-panel shadow-lg border-b border-slate-700 fixed top-0 z-50">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <h1 class="text-2xl font-bold text-white tracking-wider flex items-center gap-2">
-                <i class="fa-solid fa-cube text-roblox-accent"></i> 
-                <span>Builder<span class="text-roblox-accent">.</span>Portfólio</span>
-            </h1>
-            <nav class="hidden md:flex gap-6 text-sm font-semibold text-slate-300">
-                <a href="#sobre" class="hover:text-roblox-accent transition-colors">Sobre mim</a>
-                <a href="#projetos" class="hover:text-roblox-accent transition-colors">Projetos</a>
-                <a href="#contato" class="hover:text-roblox-accent transition-colors">Contato</a>
-            </nav>
+        <div class="w-32 h-32 md:w-48 md:h-48 shrink-0 rounded-full border-4 border-roblox-accent overflow-hidden shadow-lg shadow-roblox-accent/20">
+            <!-- Foto de Perfil -->
+            <img src="imagem.png" alt="Meu_Avatar" class="w-full h-full object-cover">
         </div>
-    </header>
+        
+        <div class="text-center md:text-left z-10">
+            <h2 class="text-3xl font-bold mb-2">Olá, eu sou um <span class="text-roblox-accent">Builder</span>.</h2>
+            <div class="h-1 w-20 bg-roblox-accent mx-auto md:mx-0 mb-6 rounded-full"></div>
+            <p class="text-slate-300 text-lg leading-relaxed">
+                Sou builder há mais de um ano. Já desenvolvi diversos mapas para o Exército Brasileiro (EB) e venho me aperfeiçoando cada vez mais na criação de mapas e builds para jogos de RP, com foco em construções realistas e detalhadas.
+            </p>
+        </div>
+    </div>
+</section>
 
-    <!-- Espaçamento para o cabeçalho fixo -->
-    <div class="pt-24"></div>
+<!-- SEÇÃO: GALERIA DE IMAGENS (PROJETOS) -->
+<section id="projetos" class="max-w-6xl mx-auto px-6 py-12 flex-grow">
+    <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold mb-4">Meus Projetos & Builds</h2>
+        <p class="text-slate-400 max-w-2xl mx-auto">Confira abaixo algumas das minhas construções e mapas desenvolvidos no Roblox Studio.</p>
+    </div>
 
-    <!-- SEÇÃO: SOBRE MIM -->
-    <section id="sobre" class="max-w-4xl mx-auto px-6 py-12">
-        <div class="bg-roblox-panel rounded-2xl p-8 md:p-12 shadow-2xl border border-slate-700/50 flex flex-col md:flex-row items-center gap-8 relative overflow-hidden">
-            
-            <!-- Detalhe decorativo no fundo -->
-            <div class="absolute -top-10 -right-10 w-32 h-32 bg-roblox-accent rounded-full opacity-10 blur-3xl"></div>
-            
-            <div class="w-32 h-32 md:w-48 md:h-48 shrink-0 rounded-full border-4 border-roblox-accent overflow-hidden shadow-lg shadow-roblox-accent/20">
-                <!-- COLOQUE SUA FOTO DE PERFIL AQUI SUBSTITUINDO O LINK NO 'src' ABAIXO -->
-                <img src="https://media.discordapp.net/attachments/1423822920978927688/1549893234212470965/Lev_Cat.jfif?ex=6aac5a0e&is=6aab088e&hm=e2586a7b6079a4e1b9c2ba9ae88be5255855cd0ac53d2cc7aa7965687a70861d&=&format=webp" alt="Meu Avatar" class="w-full h-full object-cover">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="galeria">
+        
+        <!-- PROJETO 1 -->
+        <div class="project-card group relative bg-roblox-panel rounded-xl overflow-hidden shadow-lg border border-slate-700/50 cursor-pointer">
+            <div class="aspect-video overflow-hidden bg-slate-800">
+                <img src="entrada.png" alt="Entrada Comando do Oeste EB" class="project-img w-full h-full object-cover">
             </div>
-            
-            <div class="text-center md:text-left z-10">
-                <h2 class="text-3xl font-bold mb-2">Olá, eu sou um <span class="text-roblox-accent">Builder</span>.</h2>
-                <div class="h-1 w-20 bg-roblox-accent mx-auto md:mx-0 mb-6 rounded-full"></div>
-                <p class="text-slate-300 text-lg leading-relaxed">
-                    Sou builder há mais de um ano. Já desenvolvi diversos mapas para o Exército Brasileiro (EB) e venho me aperfeiçoando cada vez mais na criação de mapas e builds para jogos de RP, com foco em construções realistas e detalhadas.
-                </p>
+            <div class="p-4 absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent pt-12">
+                <h3 class="font-bold text-lg text-white">Entrada Comando do Oeste EB</h3>
+                <p class="text-sm text-slate-300">Exterior detalhado</p>
             </div>
         </div>
-    </section>
 
-    <!-- SEÇÃO: GALERIA DE IMAGENS (PROJETOS) -->
-    <section id="projetos" class="max-w-6xl mx-auto px-6 py-12 flex-grow">
-        <div class="text-center mb-12">
-            <h2 class="text-3xl font-bold mb-4">Meus Projetos & Builds</h2>
-            <p class="text-slate-400 max-w-2xl mx-auto">Confira abaixo algumas das minhas construções e mapas desenvolvidos no Roblox Studio.</p>
-        </div>
-
-        <!-- GRID DE IMAGENS -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="galeria">
-            
-            <!-- ====== INÍCIO DE UM CARTÃO DE IMAGEM ====== -->
-            <div class="project-card group relative bg-roblox-panel rounded-xl overflow-hidden shadow-lg border border-slate-700/50 cursor-pointer">
-                <div class="aspect-video overflow-hidden bg-slate-800">
-                    <!-- PARA TROCAR ESTA IMAGEM: Mude o link de 'src' abaixo -->
-                    <img src="https://media.discordapp.net/attachments/1423822920978927688/1549893938570338404/Captura_de_tela_2026-08-17_182624.png?ex=6aac5ab6&is=6aab0936&hm=4e99ed6928c761842a57b85d8aafacdecaeeacf1367327b24f871d14f4adfbfc&=&format=webp&quality=lossless" alt="Build 1" class="project-img w-full h-full object-cover">
-                </div>
-                <!-- Você pode mudar o título da build aqui -->
-                <div class="p-4 absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent pt-12">
-                    <h3 class="font-bold text-lg text-white">Entrada Comando do Oeste EB</h3>
-                    <p class="text-sm text-slate-300">Exterior detalhado</p>
-                </div>
+        <!-- PROJETO 2 -->
+        <div class="project-card group relative bg-roblox-panel rounded-xl overflow-hidden shadow-lg border border-slate-700/50 cursor-pointer">
+            <div class="aspect-video overflow-hidden bg-slate-800">
+                <img src="DelegaçãoRJ.png" alt="Delegacia do RJ" class="project-img w-full h-full object-cover">
             </div>
-            <!-- ====== FIM DO CARTÃO DE IMAGEM ====== -->
-
-            <!-- ====== INÍCIO DE UM CARTÃO DE IMAGEM ====== -->
-            <div class="project-card group relative bg-roblox-panel rounded-xl overflow-hidden shadow-lg border border-slate-700/50 cursor-pointer">
-                <div class="aspect-video overflow-hidden bg-slate-800">
-                    <!-- PARA TROCAR ESTA IMAGEM: Mude o link de 'src' abaixo -->
-                    <img src="https://media.discordapp.net/attachments/1423822920978927688/1549894329856692325/delegacia.png?ex=6aac5b13&is=6aab0993&hm=0778b667f93b168e92a2ab316752c260af130f17ca1dd01d92842e018780d1b7&=&format=webp&quality=lossless" alt="Build 2" class="project-img w-full h-full object-cover">
-                </div>
-                <div class="p-4 absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent pt-12">
-                    <h3 class="font-bold text-lg text-white">Delegacia do RJ (RP)</h3>
-                    <p class="text-sm text-slate-300">Delegacia de Polícia Civil</p>
-                </div>
-            </div>
-            <!-- ====== FIM DO CARTÃO DE IMAGEM ====== -->
-
-            <!-- ====== INÍCIO DE UM CARTÃO DE IMAGEM ====== -->
-            <div class="project-card group relative bg-roblox-panel rounded-xl overflow-hidden shadow-lg border border-slate-700/50 cursor-pointer">
-                <div class="aspect-video overflow-hidden bg-slate-800">
-                    <!-- PARA TROCAR ESTA IMAGEM: Mude o link de 'src' abaixo -->
-                    <img src="https://media.discordapp.net/attachments/1540491204653748346/1540496962120327418/delegacia_civil_de_SP.png?ex=6aabc958&is=6aaa77d8&hm=5cea2520cf520760a6ea15ece65c82e997c6afcd6d1cabf25266fd7938cc739d&=&format=webp&quality=lossless" alt="Build 3" class="project-img w-full h-full object-cover">
-                </div>
-                <div class="p-4 absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent pt-12">
-                    <h3 class="font-bold text-lg text-white">Delegacia do SP (RP)</h3>
-                    <p class="text-sm text-slate-300">Delegacia de Polícia Civil</p>
-                </div>
-            </div>
-            <!-- ====== FIM DO CARTÃO DE IMAGEM ====== -->
-
-             <!-- ====== INÍCIO DE UM CARTÃO DE IMAGEM ====== -->
-            <div class="project-card group relative bg-roblox-panel rounded-xl overflow-hidden shadow-lg border border-slate-700/50 cursor-pointer">
-                <div class="aspect-video overflow-hidden bg-slate-800">
-                    <!-- PARA TROCAR ESTA IMAGEM: Mude o link de 'src' abaixo -->
-                    <img src="https://media.discordapp.net/attachments/1540491204653748346/1540497799496597524/monumento_lindo.png?ex=6aabca20&is=6aaa78a0&hm=63527339a4e5da4df1c3facb9c9eb8d9167f74ee1189abb91d80d0637731fe14&=&format=webp&quality=lossless" alt="Build 3" class="project-img w-full h-full object-cover">
-                </div>
-                <div class="p-4 absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent pt-12">
-                    <h3 class="font-bold text-lg text-white">Monumento Lindo</h3>
-                    <p class="text-sm text-slate-300">Um monumento icônico da cidade</p>
-                </div>
-            </div>
-            <!-- ====== FIM DO CARTÃO DE IMAGEM ====== -->
-
-            <!-- ========================================================================= -->
-            <!-- COMO ADICIONAR MAIS IMAGENS FUTURAMENTE:                                  -->
-            <!-- Para adicionar mais projetos, basta copiar todo o bloco de código que vai -->
-            <!-- de "INÍCIO DE UM CARTÃO DE IMAGEM" até "FIM DO CARTÃO DE IMAGEM" e        -->
-            <!-- colar aqui embaixo. Depois, é só trocar o link e os textos!               -->
-            <!-- ========================================================================= -->
-
-        </div>
-    </section>
-
-    <!-- SEÇÃO: CONTATO -->
-    <section id="contato" class="w-full bg-slate-900 border-t border-slate-800 mt-12 py-16">
-        <div class="max-w-3xl mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold mb-6">Gostou do meu trabalho?</h2>
-            <p class="text-slate-400 mb-8">Estou disponível para novos projetos, comissões e parcerias. Entre em contato comigo pelo Discord para conversarmos!</p>
-            
-            <div class="inline-flex flex-col items-center">
-                <!-- BOTÃO DE DISCORD -->
-                <!-- TROQUE O SEU NOME DE USUÁRIO DO DISCORD ABAIXO DENTRO DA FUNÇÃO copiarDiscord('AQUI') -->
-                <button onclick="copiarDiscord('caique_762')" class="group flex items-center gap-4 bg-[#5865F2] hover:bg-[#4752C4] transition-colors duration-300 rounded-xl px-8 py-4 shadow-lg shadow-[#5865F2]/20">
-                    <i class="fa-brands fa-discord text-3xl text-white"></i>
-                    <div class="text-left">
-                        <p class="text-white/80 text-xs font-semibold uppercase tracking-wider">Adicione no Discord</p>
-                        <!-- TROQUE O NOME QUE APARECE NA TELA AQUI TAMBÉM: -->
-                        <p class="text-white font-bold text-xl" id="discord-text">caique_762</p>
-                    </div>
-                    <i class="fa-regular fa-copy text-white/50 group-hover:text-white ml-2 transition-colors"></i>
-                </button>
-                
-                <!-- Mensagem de feedback ao copiar -->
-                <p id="msg-copiado" class="text-[#5865F2] font-semibold mt-4 opacity-0 transition-opacity duration-300">
-                    <i class="fa-solid fa-check mr-2"></i>Usuário copiado para a área de transferência!
-                </p>
+            <div class="p-4 absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent pt-12">
+                <h3 class="font-bold text-lg text-white">Delegacia do RJ (RP)</h3>
+                <p class="text-sm text-slate-300">Delegacia de Polícia Civil</p>
             </div>
         </div>
-    </section>
 
-    <!-- RODAPÉ -->
-    <footer class="w-full bg-roblox-panel border-t border-slate-800 py-6 text-center text-slate-500 text-sm">
-        <p>&copy; 2023 Builder Portfolio. Todos os direitos reservados.</p>
-    </footer>
+        <!-- PROJETO 3 -->
+        <div class="project-card group relative bg-roblox-panel rounded-xl overflow-hidden shadow-lg border border-slate-700/50 cursor-pointer">
+            <div class="aspect-video overflow-hidden bg-slate-800">
+                <img src="delegacia_civil_de_SP.png" alt="Delegacia do SP" class="project-img w-full h-full object-cover">
+            </div>
+            <div class="p-4 absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent pt-12">
+                <h3 class="font-bold text-lg text-white">Delegacia do SP (RP)</h3>
+                <p class="text-sm text-slate-300">Delegacia de Polícia Civil</p>
+            </div>
+        </div>
 
-    <script>
-        // Função para copiar o usuário do Discord com compatibilidade
-        function copiarDiscord(usuario) {
-            // Cria um elemento de texto temporário para copiar
-            const tempInput = document.createElement("input");
-            tempInput.value = usuario;
-            document.body.appendChild(tempInput);
-            tempInput.select();
+        <!-- PROJETO 4 -->
+        <div class="project-card group relative bg-roblox-panel rounded-xl overflow-hidden shadow-lg border border-slate-700/50 cursor-pointer">
+            <div class="aspect-video overflow-hidden bg-slate-800">
+                <img src="monumento_lindo.png" alt="Monumento Lindo" class="project-img w-full h-full object-cover">
+            </div>
+            <div class="p-4 absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent pt-12">
+                <h3 class="font-bold text-lg text-white">Monumento Lindo</h3>
+                <p class="text-sm text-slate-300">Um monumento icônico da cidade</p>
+            </div>
+        </div>
+
+        <!-- PROJETO 5 (STF) -->
+        <div class="project-card group relative bg-roblox-panel rounded-xl overflow-hidden shadow-lg border border-slate-700/50 cursor-pointer">
+            <div class="aspect-video overflow-hidden bg-slate-800">
+                <img src="stfpng.png" alt="STF" class="project-img w-full h-full object-cover">
+            </div>
+            <div class="p-4 absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent pt-12">
+                <h3 class="font-bold text-lg text-white">STF - Supremo Tribunal</h3>
+                <p class="text-sm text-slate-300">Construção Governamental</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- SEÇÃO: CONTATO -->
+<section id="contato" class="w-full bg-slate-900 border-t border-slate-800 mt-12 py-16">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+        <h2 class="text-3xl font-bold mb-6">Gostou do meu trabalho?</h2>
+        <p class="text-slate-400 mb-8">Estou disponível para novos projetos, comissões e parcerias. Entre em contato comigo pelo Discord para conversarmos!</p>
+        
+        <div class="inline-flex flex-col items-center">
+            <button onclick="copiarDiscord('caique_762')" class="group flex items-center gap-4 bg-[#5865F2] hover:bg-[#4752C4] transition-colors duration-300 rounded-xl px-8 py-4 shadow-lg shadow-[#5865F2]/20">
+                <i class="fa-brands fa-discord text-3xl text-white"></i>
+                <div class="text-left">
+                    <p class="text-white/80 text-xs font-semibold uppercase tracking-wider">Adicione no Discord</p>
+                    <p class="text-white font-bold text-xl" id="discord-text">caique_762</p>
+                </div>
+                <i class="fa-regular fa-copy text-white/50 group-hover:text-white ml-2 transition-colors"></i>
+            </button>
             
-            try {
-                // Tenta copiar
-                document.execCommand("copy");
-                
-                // Mostra a mensagem de sucesso
-                const msg = document.getElementById('msg-copiado');
-                msg.classList.remove('opacity-0');
-                
-                // Esconde a mensagem após 3 segundos
-                setTimeout(() => {
-                    msg.classList.add('opacity-0');
-                }, 3000);
-            } catch (err) {
-                console.error('Falha ao copiar texto: ', err);
-            } finally {
-                // Remove o elemento temporário
-                document.body.removeChild(tempInput);
-            }
+            <p id="msg-copiado" class="text-[#5865F2] font-semibold mt-4 opacity-0 transition-opacity duration-300">
+                <i class="fa-solid fa-check mr-2"></i>Usuário copiado para a área de transferência!
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- RODAPÉ -->
+<footer class="w-full bg-roblox-panel border-t border-slate-800 py-6 text-center text-slate-500 text-sm">
+    <p>&copy; 2023 Builder Portfolio. Todos os direitos reservados.</p>
+</footer>
+
+<script>
+    function copiarDiscord(usuario) {
+        const tempInput = document.createElement("input");
+        tempInput.value = usuario;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        
+        try {
+            document.execCommand("copy");
+            const msg = document.getElementById('msg-copiado');
+            msg.classList.remove('opacity-0');
+            
+            setTimeout(() => {
+                msg.classList.add('opacity-0');
+            }, 3000);
+        } catch (err) {
+            console.error('Falha ao copiar texto: ', err);
+        } finally {
+            document.body.removeChild(tempInput);
         }
-    </script>
-</body>
-</html>
+    }
+</script>
